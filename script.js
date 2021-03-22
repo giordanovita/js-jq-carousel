@@ -41,7 +41,7 @@ function next(){
  
  function nextInd(){ 
       
-     $(".next").click(function(){
+     $(function(){
          var indicatore = $('.indicators ul .blue')
          if(indicatore.hasClass('last')){
           nextIndic=$(indicatore).next('li')
@@ -61,7 +61,7 @@ function next(){
 function prevInd(){ 
       
  
-   $(".prev").click(function(){
+   $(function(){
        var indicatore = $('.indicators ul .blue')
        if(indicatore.hasClass('first')){
         prevIndic=$(indicatore).prev('li')
@@ -80,9 +80,12 @@ function prevInd(){
 }
 
 function init(){
-  $('.prev').click(prev)
-  $('.next').click(next)
-  nextInd()
-  prevInd()
+  $('.prev').click(prev); 
+  $('.next').click(next);  
+  $('.next').click(nextInd)
+  $('.prev').click(prevInd) 
+  setInterval(next,4000);
+  setInterval(nextInd,4000);
+
  }
 $(document).ready(init); 
